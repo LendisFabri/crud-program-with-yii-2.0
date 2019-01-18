@@ -12,7 +12,15 @@ class m190118_053946_biodata extends Migration
      */
     public function safeUp()
     {
-
+      $this->createTable('biodata', [
+        'id' => $this->primaryKey(),
+        'nama_lengkap' => $this->string(30)->notNull(),
+        'tempat_lahir' => $this->string(20),
+        'tanggal_lahir' => $this->date(),
+        'jenis_kelamin' => $this->string(10),
+        'alamat' => $this->string(50),
+        'no_telp' => $this->string(15),
+      ]);
     }
 
     /**
@@ -20,9 +28,9 @@ class m190118_053946_biodata extends Migration
      */
     public function safeDown()
     {
-        echo "m190118_053946_biodata cannot be reverted.\n";
-
-        return false;
+      $this->dropTable('biodata');
+        // echo "m190118_053946_biodata cannot be reverted.\n";
+        // return false;
     }
 
     /*
